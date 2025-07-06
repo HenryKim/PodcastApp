@@ -3,6 +3,9 @@ package com.example.coadingchallenge.network.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Podcast Model for single Podcast
+ */
 @Serializable
 data class Pod(
     val id: String,
@@ -52,7 +55,9 @@ data class Pod(
     val listenScoreGlobalRank: String,
 )
 
-
+/**
+ * Just to carry around model for list of Pod
+ */
 data class PodsContainer(
     val data: List<Pod>?,
     val url: String,

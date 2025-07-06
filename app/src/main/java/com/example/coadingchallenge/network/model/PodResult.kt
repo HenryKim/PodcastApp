@@ -3,6 +3,9 @@ package com.example.coadingchallenge.network.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Podcast Result Model for multiple Podcasts and pagination info
+ */
 @Serializable
 data class PodResult(
     val id: Long?,
