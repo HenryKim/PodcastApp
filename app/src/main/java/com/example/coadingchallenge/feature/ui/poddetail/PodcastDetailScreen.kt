@@ -187,7 +187,7 @@ fun PodcastDetailScreen(
                         modifier = Modifier.fillMaxWidth(0.8f) // Button width is 80% of available width.
                     ) {
                         Text(
-                            text = stringResource(R.string.favorite), // Text displayed on the button.
+                            text = stringResource(if (currentPodcast.isFavorite) R.string.favorited else R.string.favorite), // Text displayed on the button.
                             style = MaterialTheme.typography.labelLarge.copy(
                                 fontWeight = FontWeight.Bold // Makes button text bold.
                             )

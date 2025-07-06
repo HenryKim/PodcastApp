@@ -53,6 +53,7 @@ data class Pod(
     val updateFrequencyHours: Long,
     @SerialName("listen_score_global_rank")
     val listenScoreGlobalRank: String,
+    val isFavorite: Boolean = true,
 )
 
 /**

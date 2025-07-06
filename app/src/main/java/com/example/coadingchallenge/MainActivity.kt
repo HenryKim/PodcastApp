@@ -89,7 +89,7 @@ fun AppNavigation() {
                 // Lambda triggered when the back button is pressed.
                 onBack = {
                     // Clears the currently highlighted podcast in the ViewModel.
-                    viewModel.onPodCastClick(null)
+                    viewModel.clearHighlightedPodcast()
                     // Navigates back to the previous screen in the back stack.
                     navController.popBackStack()
                 }

@@ -17,7 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -32,7 +32,7 @@ import com.example.coadingchallenge.network.model.Pod
 @Preview(showBackground = true) // Added showBackground for better preview
 @Composable
 fun ShowPodCardsPreview() { // Renamed for clarity that it's a preview
-    val pod = Pod(
+    var pod = Pod(
         id = "1",
         rss = "rss",
         type = "type",
@@ -105,6 +105,20 @@ fun PodsCard(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis // Handle long publisher names gracefully
             )
+
+            // Display "Favorited" text if the podcast is marked as a favorite
+            if (podcast.isFavorite) {
+                Spacer(modifier = Modifier.height(4.dp)) // Add small space before "Favorited" text
+                Text(
+                    text = stringResource(R.string.favorited),
+                    style = MaterialTheme.typography.labelSmall.copy( // Using labelSmall for a less prominent look
+                        color = Color.Red, // Explicitly using Red for strong visual cue
+                        fontWeight = FontWeight.SemiBold // Make it slightly bolder
+                    ),
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis // Handle if "Favorited" text somehow overflows (unlikely)
+                )
+            }
         }
     }
 }
@@ -118,14 +132,13 @@ fun PodImage(
         modifier = modifier
             .size(80.dp), // Use .size() for equal width and height
         shape = MaterialTheme.shapes.medium,
-        // elevation = CardDefaults.cardElevation(defaultElevation = 2.dp) // Optional: add subtle elevation
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp) // Optional: add subtle elevation
     ) {
         AsyncImage(
             model = podcast.image, // Use 'image' for main card, 'thumbnail' for smaller usually
             contentDescription = stringResource(R.string.contentDescription_podcastThumnails),
             contentScale = ContentScale.Crop, // Changed from FillBounds to avoid distortion
             modifier = Modifier.fillMaxSize() // Image should fill the Card
-                .clip(MaterialTheme.shapes.medium) // Ensure image respects card's rounded corners
         )
     }
 }

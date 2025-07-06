@@ -56,9 +56,18 @@ class PodCastViewModel @Inject constructor(
     /**
      * Highlight the selected podcast
      */
-    fun onPodCastClick(pod: Pod?) {
+    fun onPodCastClick(pod: Pod) {
         _highligtedPodcast.value = pod
     }
+
+    /**
+     * Clear the highlighted podcast
+     */
+    fun clearHighlightedPodcast() {
+        _highligtedPodcast.value = null
+    }
+
+
 
     /**
      * Update the [isRefreshing] ui state

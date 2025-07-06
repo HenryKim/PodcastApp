@@ -3,8 +3,8 @@
     <string name="retry">Retry</string>
     <string name="unable_to_load_pods">Unable to load pods</string>
     <string name="back">Back</string>
-    <string name="favorite">favorite</string>"
-    <string name="favorited">favorited</string>"
+    <string name="favorite">Favorite</string>"
+    <string name="favorited">Favorited</string>"
     <string name="contentDescription_podcastThumnails">Podcast Thumbnail Image</string>"
     <string name="no_podcasts_found">No Podcasts Found</string>"
 </resources>
