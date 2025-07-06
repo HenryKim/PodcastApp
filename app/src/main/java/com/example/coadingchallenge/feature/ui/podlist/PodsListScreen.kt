@@ -1,19 +1,23 @@
-package com.example.coadingchallenge.ui.podlist
+package com.example.coadingchallenge.feature.ui.podlist
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -25,20 +29,23 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.coadingchallenge.R
 import com.example.coadingchallenge.feature.PagingEvent
-import com.example.coadingchallenge.feature.PodListViewModel
+import com.example.coadingchallenge.feature.PodCastViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PodsListScreen (
     modifier: Modifier,
-    podsListViewModel: PodListViewModel = hiltViewModel()
+    podsListViewModel: PodCastViewModel = hiltViewModel(),
+    onPodCastClick: () -> Unit
 ) {
     val podListState = rememberLazyListState()
     val snackbarHostState = remember { SnackbarHostState() }
@@ -88,7 +95,20 @@ fun PodsListScreen (
             androidx.compose.material3.SnackbarHost(snackbarHostState)
         },
         topBar = {
-
+            Surface(
+                modifier = Modifier.fillMaxWidth(),
+            ) {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = stringResource(R.string.app_name),
+                            style = MaterialTheme.typography.headlineSmall,
+                            fontFamily = FontFamily.Serif,
+                            fontWeight = FontWeight.Black
+                        )
+                    }
+                )
+            }
         },
     ) { innerPadding ->
         PullToRefreshBox(
@@ -125,9 +145,8 @@ fun PodsListScreen (
                         podsPaging[index]?.let { pods ->
                             key(pods.id.hashCode()) {
                                 PodsCard(
-                                    modifier = Modifier.fillParentMaxWidth(),
                                     podcast = pods,
-                                    onItemClick = {}
+                                    onItemClick = { onPodCastClick() }
                                 )
                             }
                         }

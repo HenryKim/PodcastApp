@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Coading Challenge</string>
+    <string name="app_name">Podcasts</string>
     <string name="retry">Retry</string>
     <string name="unable_to_load_pods">Unable to load pods</string>
 </resources>
