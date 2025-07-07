@@ -59,15 +59,3 @@ The app follows **Clean Architecture principles** with:
 2. Open in Android Studio (recommended version: Hedgehog or newer)
 
 3. Build & run the app on an emulator or device
-
-
----
-
-## Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/HenryKim/PodcastApp.git
-2. Open in Android Studio (recommended version: Hedgehog or newer)
-
-3. Build & run the app on an emulator or device
