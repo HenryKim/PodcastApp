@@ -2,8 +2,8 @@ package com.example.coadingchallenge.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.coadingchallenge.network.data.db.PodCastAppDataBase
-import com.example.coadingchallenge.network.data.db.dao.FavouritePodCastDao
+import com.example.coadingchallenge.data.db.PodCastAppDataBase
+import com.example.coadingchallenge.data.db.dao.PodcastDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,8 +27,8 @@ class DbModule {
 
     @Singleton
     @Provides
-    fun providePodcastDao(database: PodCastAppDataBase): FavouritePodCastDao {
-        return database.favouritePodCastDao()
+    fun providePodcastDao(database: PodCastAppDataBase): PodcastDao {
+        return database.podcastDao()
     }
 
 }
