@@ -101,7 +101,7 @@ fun PodcastDetailScreenPreview() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PodcastDetailScreen(
-    podcast: Pod?,
+    podcast: Pod,
     onBack: () -> Unit = {},
     onFavoriteClick: (podcast: Pod) -> Unit = {}
 ) {

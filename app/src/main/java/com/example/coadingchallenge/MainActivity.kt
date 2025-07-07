@@ -71,7 +71,7 @@ fun AppNavigation() {
         composable(MainActivity.PODCAST_DETAIL) {
             PodcastDetailScreen(
                 // Collects the highlighted podcast from the ViewModel as state.
-                podcast = viewModel.highlightedPodcast.collectAsStateWithLifecycle().value,
+                podcast = viewModel.highlightedPodcast.collectAsStateWithLifecycle().value ?: return@composable,
                 onFavoriteClick = { viewModel.toggleFavoritePodcast(it) },
                 onBack = {
                     // Clears the currently highlighted podcast in the ViewModel.
