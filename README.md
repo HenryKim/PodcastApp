@@ -6,7 +6,10 @@ This project showcases a **scalable and maintainable architecture** suitable for
 ---
 
 ## Video
-<video src = https://github.com/user-attachments/assets/9c529778-ac4a-45c8-b301-903b7ce43253 /> 
+<video src = https://github.com/user-attachments/assets/9c529778-ac4a-45c8-b301-903b7ce43253/>|
+
+---
+
 
 ## Features
 
@@ -17,7 +20,7 @@ This project showcases a **scalable and maintainable architecture** suitable for
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **100% Kotlin**
 - **Jetpack Compose** for declarative UI
