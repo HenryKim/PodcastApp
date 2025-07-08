@@ -1,10 +1,11 @@
-package com.example.coadingchallenge.network.data.paging
+package com.example.coadingchallenge.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.coadingchallenge.network.data.api.ApiResult
-import com.example.coadingchallenge.network.model.Pod
-import com.example.coadingchallenge.network.data.repository.PodsRepository
+import com.example.coadingchallenge.data.api.ApiResult
+import com.example.coadingchallenge.domain.model.Pod
+import com.example.codingchallenge.network.data.repository.PodsRepository
+
 
 class PodPagingSource (
     private val podsRepository: PodsRepository

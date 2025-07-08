@@ -1,4 +1,4 @@
-package com.example.coadingchallenge.network.data.api
+package com.example.coadingchallenge.data.api
 
 sealed class ApiResult<out T> {
     data class Success<T>(val data: T, val meta: Meta = Meta()) : ApiResult<T>()

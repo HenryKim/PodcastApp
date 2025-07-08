@@ -1,4 +1,4 @@
-package com.example.coadingchallenge.feature
+package com.example.coadingchallenge.presentation.ui.event
 
 enum class PagingEvent {
 

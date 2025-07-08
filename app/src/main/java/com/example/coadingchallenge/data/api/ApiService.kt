@@ -1,6 +1,6 @@
-package com.example.coadingchallenge.network.data.api
+package com.example.coadingchallenge.data.api
 
-import com.example.coadingchallenge.network.model.PodResult
+import com.example.coadingchallenge.domain.model.PodResult
 import retrofit2.Response
 
 import retrofit2.http.GET

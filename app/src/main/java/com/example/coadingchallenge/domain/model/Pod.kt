@@ -1,8 +1,11 @@
-package com.example.coadingchallenge.network.model
+package com.example.coadingchallenge.domain.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Podcast Model for single Podcast
+ */
 @Serializable
 data class Pod(
     val id: String,
@@ -16,7 +19,7 @@ data class Pod(
     val website: String,
     val language: String,
     @SerialName("genre_ids")
-    val genreIds: List<Long>,
+    val genreIds: List<Long>?,
     @SerialName("itunes_id")
     val itunesId: Long,
     val publisher: String,
@@ -33,13 +36,13 @@ data class Pod(
     @SerialName("total_episodes")
     val totalEpisodes: Long,
     @SerialName("listennotes_url")
-    val listenNotesUrl: String,
+    val listenNotesUrl: String?,
     @SerialName("audio_length_sec")
     val audioLengthSec: Long,
     @SerialName("explicit_content")
     val explicitContent: Boolean,
     @SerialName("latest_episode_id")
-    val latestEpisodeId: String,
+    val latestEpisodeId: String?,
     @SerialName("latest_pub_date_ms")
     val latestPubDateMs: Long,
     @SerialName("earliest_pub_date_ms")
@@ -49,10 +52,13 @@ data class Pod(
     @SerialName("update_frequency_hours")
     val updateFrequencyHours: Long,
     @SerialName("listen_score_global_rank")
-    val listenScoreGlobalRank: String,
+    val listenScoreGlobalRank: String?,
+    val isFavorite: Boolean = false,
 )
 
-
+/**
+ * Just to carry around model for list of Pod
+ */
 data class PodsContainer(
     val data: List<Pod>?,
     val url: String,
